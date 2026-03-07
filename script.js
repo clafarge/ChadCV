@@ -1,6 +1,16 @@
 (function () {
   'use strict';
 
+  // Nav: add .scrolled when user has scrolled
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    function onScroll() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   // Photo: support GitHub Pages and local file (file://) loading
   var photoPlaceholder = document.getElementById('photoPlaceholder');
   if (photoPlaceholder) {
