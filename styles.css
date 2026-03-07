@@ -360,6 +360,11 @@ body {
   line-height: 1.6;
 }
 
+/* Volunteer */
+.block-volunteer {
+  background: var(--bg-elevated);
+}
+
 /* Badges */
 .block-badges {
   background: var(--bg);
