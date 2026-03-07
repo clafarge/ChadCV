@@ -446,7 +446,6 @@ body {
 .connect-lead {
   color: var(--text-soft);
   margin: 0 0 1.25rem;
-  max-width: 36ch;
 }
 
 .connect-links {
