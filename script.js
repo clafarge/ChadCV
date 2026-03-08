@@ -47,6 +47,29 @@
     onScroll();
   }
 
+  // Scroll hint: fixed above bottom of viewport, lags behind as user scrolls (parallax), then fades out
+  var scrollHint = document.querySelector('.scroll-hint');
+  if (scrollHint) {
+    var scrollHintThreshold = 280;
+    var scrollLagFactor = 0.22;
+    var scrollLagMax = 56;
+
+    function updateScrollHint() {
+      var y = window.scrollY || window.pageYOffset;
+      if (y >= scrollHintThreshold) {
+        scrollHint.classList.add('scroll-hint--hidden');
+        scrollHint.style.transform = 'translate(-50%, 0)';
+      } else {
+        scrollHint.classList.remove('scroll-hint--hidden');
+        var lag = Math.min(y * scrollLagFactor, scrollLagMax);
+        scrollHint.style.transform = 'translate(-50%, ' + lag + 'px)';
+      }
+    }
+
+    window.addEventListener('scroll', updateScrollHint, { passive: true });
+    updateScrollHint();
+  }
+
   // Photo: support GitHub Pages and local file (file://) loading
   var photoPlaceholder = document.getElementById('photoPlaceholder');
   if (photoPlaceholder) {

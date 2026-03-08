@@ -320,17 +320,25 @@ html[data-theme="light"] .theme-icon-moon {
 }
 
 .scroll-hint {
-  position: absolute;
-  bottom: 1.5rem;
+  position: fixed;
+  bottom: max(1rem, calc(env(safe-area-inset-bottom, 0px) + 0.5rem));
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0);
+  z-index: 50;
   font-family: var(--font-display);
   font-size: 0.7rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--text-soft);
-  opacity: 0.8;
+  opacity: 0.9;
+  transition: transform 0.15s ease-out, opacity 0.35s ease-out;
+  pointer-events: none;
+}
+
+.scroll-hint--hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Blocks */
