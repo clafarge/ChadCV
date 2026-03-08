@@ -9,22 +9,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    (function(){var t=localStorage.getItem('chadcv-theme');document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark');})();
+  </script>
 </head>
 <body>
-  <nav class="nav">
-    <a href="#top" class="nav-logo">CL</a>
-    <div class="nav-links">
-      <a href="#story">Story</a>
-      <a href="#work">Work</a>
-      <a href="#volunteer">Give back</a>
-      <a href="#connect">Connect</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#top" class="nav-logo" aria-label="Chad LaFarge, back to top">CL</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#story">Story</a>
+        <a href="#work">Work</a>
+        <a href="#volunteer">Give back</a>
+        <a href="#connect">Connect</a>
+      </div>
+      <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+        <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
+        <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
 
   <header class="hero" id="top">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-inner">
-      <div class="photo-wrap" id="photoPlaceholder">
+      <div class="photo-wrap" id="photoPlaceholder" role="img" aria-label="Photo of Chad LaFarge">
         <span class="photo-initials">CL</span>
         <p class="photo-hint">Photo: assets/photo.jpg</p>
       </div>
@@ -32,16 +42,16 @@
       <p class="hero-sub">Senior Software Engineer<br>Emmy-nominated live producer<br>Real estate broker<br>Columbia, MO</p>
       <div class="hero-cta">
         <a href="#connect" class="btn btn-primary">Get in touch</a>
-        <a href="https://www.linkedin.com/in/clafarge/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/clafarge/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
       </div>
     </div>
     <div class="scroll-hint" aria-hidden="true">Scroll</div>
   </header>
 
-  <main>
-    <section class="block block-story" id="story">
+  <main id="main-content">
+    <section class="block block-story" id="story" aria-labelledby="story-heading">
       <div class="container">
-        <h2 class="block-title">The short version</h2>
+        <h2 id="story-heading" class="block-title">The short version</h2>
         <div class="story-grid">
           <p class="story-lead">I started as an Aviation Electronics Technician in the US Navy and never stopped learning. Today I’m a senior software engineer who ships multi-tier .NET apps, leads Agile teams, and still gets a kick out of solving hard problems. I've been working remotely (mostly) since 2000.</p>
           <p class="story-body">In 2012 I fell in love with helping people tell their stories—volunteering on productions using YouTube Live and Hangouts on Air so veterans, who couldn’t travel could still “visit” their memorials. That work led to a <strong>Regional Emmy nomination in 2013</strong>.</p>
@@ -50,18 +60,64 @@
       </div>
     </section>
 
-    <section class="block block-ai" id="build">
+    <section class="block block-ai" id="build" aria-labelledby="build-heading">
       <div class="container">
         <span class="block-label">Right now</span>
-        <h2 class="block-title">Building with AI in the loop</h2>
+        <h2 id="build-heading" class="block-title">Building with AI in the loop</h2>
         <p class="block-lead">I use <strong>OpenAI ChatGPT</strong>, <strong>Microsoft Copilot</strong>, <strong>Google Gemini</strong>, and <strong>Cursor</strong> every day—to prototype ideas, refactor code, write tests, and explore new stacks. The trick isn’t letting AI write everything; it’s pairing it with strong architecture and security habits so we ship faster without cutting corners. I’ve built and shipped real tools with this workflow and keep up with prompt engineering and agentic patterns.</p>
       </div>
     </section>
 
-    <section class="block block-work" id="work">
+    <section class="block block-skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <h2 id="skills-heading" class="block-title">Tech & tools</h2>
+        <div class="skills-grid">
+          <div class="skills-category">
+            <span class="skills-label">Primary stack</span>
+            <p class="skills-items">C# · .NET · MVC · ASP · DHTML · CSS · JavaScript · SQL · Python · PowerShell · Angular · React · Visual Studio · VS Code</p>
+          </div>
+          <div class="skills-category">
+            <span class="skills-label">AI tools</span>
+            <p class="skills-items">OpenAI ChatGPT · Microsoft Copilot · Google Gemini · Cursor · Prompt engineering · Code reviewing and debugging</p>
+          </div>
+          <div class="skills-category">
+            <span class="skills-label">Process & DevOps</span>
+            <p class="skills-items">Agile · SCRUM · Kanban · Jira · MS Azure DevOps · TeamCity · Octopus Deploy · TFS · CI/CD · DevOps · Jenkins · GitHub</p>
+          </div>
+          <div class="skills-category">
+            <span class="skills-label">Production</span>
+            <p class="skills-items">Isadora · OSC · vMix · XSplit · Zoom · OBS · YouTube Live · Universe · Unity Client · Companion interface design ·  NDI</p>
+          </div>
+          <div class="skills-category">
+            <span class="skills-label">Real estate</span>
+            <p class="skills-items">MLS · Comparative Market Analysis · Appraisal · Negotiation · Written and verbal communication · Photography · Realtor.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block block-badges" aria-labelledby="badges-heading">
+      <div class="container">
+        <span class="block-label">Credentials</span>
+        <h2 id="badges-heading" class="block-title">Certifications & licenses</h2>
+        <div class="badges">
+          <span class="badge">COVID-19 Compliance Officer</span>
+          <span class="badge">Dante Level 2</span>
+          <span class="badge">FCC Amateur Radio - General</span>
+          <span class="badge">FCC Radio Station Authorization - GMRS</span>
+          <span class="badge">First Aid/CPR/AED</span>
+          <span class="badge">MCSD: App Builder</span>
+          <span class="badge">MCSA: Web Applications</span>
+          <span class="badge">MTA: Software Development</span>
+          <span class="badge">OutSystems Associate Web Developer</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block block-work" id="work" aria-labelledby="work-heading">
       <div class="container">
         <span class="block-label">The journey</span>
-        <h2 class="block-title">Where I’ve been</h2>
+        <h2 id="work-heading" class="block-title">Where I’ve been</h2>
         <div class="timeline">
           <article class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
@@ -155,10 +211,10 @@
       </div>
     </section>
 
-    <section class="block block-volunteer" id="volunteer">
+    <section class="block block-volunteer" id="volunteer" aria-labelledby="volunteer-heading">
       <div class="container">
         <span class="block-label">Giving back</span>
-        <h2 class="block-title">Volunteer work</h2>
+        <h2 id="volunteer-heading" class="block-title">Volunteer work</h2>
         <div class="timeline">
           <article class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
@@ -196,66 +252,20 @@
       </div>
     </section>
 
-    <section class="block block-badges">
-      <div class="container">
-        <span class="block-label">Credentials</span>
-        <h2 class="block-title">Certifications & licenses</h2>
-        <div class="badges">
-          <span class="badge">COVID-19 Compliance Officer</span>
-          <span class="badge">Dante Level 2</span>
-          <span class="badge">FCC Amateur Radio - General</span>
-          <span class="badge">FCC Radio Station Authorization - GMRS</span>
-          <span class="badge">First Aid/CPR/AED</span>
-          <span class="badge">MCSD: App Builder</span>
-          <span class="badge">MCSA: Web Applications</span>
-          <span class="badge">MTA: Software Development</span>
-          <span class="badge">OutSystems Associate Web Developer</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="block block-skills">
-      <div class="container">
-        <h2 class="block-title">Tech & tools</h2>
-        <div class="skills-grid">
-          <div class="skills-category">
-            <span class="skills-label">Primary stack</span>
-            <p class="skills-items">C# · .NET · MVC · ASP · DHTML · CSS · JavaScript · SQL · Python · PowerShell · Angular · React · Visual Studio · VS Code</p>
-          </div>
-          <div class="skills-category">
-            <span class="skills-label">AI tools</span>
-            <p class="skills-items">OpenAI ChatGPT · Microsoft Copilot · Google Gemini · Cursor · Prompt engineering · Code reviewing and debugging</p>
-          </div>
-          <div class="skills-category">
-            <span class="skills-label">Process & DevOps</span>
-            <p class="skills-items">Agile · SCRUM · Kanban · Jira · MS Azure DevOps · TeamCity · Octopus Deploy · TFS · CI/CD · DevOps · Jenkins · GitHub</p>
-          </div>
-          <div class="skills-category">
-            <span class="skills-label">Production</span>
-            <p class="skills-items">Isadora · OSC · vMix · XSplit · Zoom · OBS · YouTube Live · Universe · Unity Client · Companion interface design ·  NDI</p>
-          </div>
-          <div class="skills-category">
-            <span class="skills-label">Real estate</span>
-            <p class="skills-items">MLS · Comparative Market Analysis · Appraisal · Negotiation · Written and verbal communication · Photography · Realtor.com</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block block-pub">
+    <section class="block block-pub" aria-labelledby="pub-heading">
       <div class="container">
         <span class="block-label">Off the keyboard</span>
-        <h2 class="block-title">Stuff I made</h2>
+        <h2 id="pub-heading" class="block-title">Stuff I made</h2>
         <div class="pub-cards">
           <div class="pub-card">
             <span class="pub-card-title">Pro Studio</span>
             <span class="pub-card-desc">Hangout production tool—cut, cue, mute, scripts, topics, deligate Host abilities. Built for smooth live shows.</span>
           </div>
-          <a href="https://www.amazon.com/What-Need-Prepare-Your-Home/dp/1461045495" target="_blank" rel="noopener" class="pub-card">
+          <a href="https://www.amazon.com/What-Need-Prepare-Your-Home/dp/1461045495" target="_blank" rel="noopener noreferrer" class="pub-card" aria-label="What You Need NOW to Prepare Your Home for Sale, Amazon (opens in new tab)">
             <span class="pub-card-title">What You Need NOW to Prepare Your Home for Sale</span>
             <span class="pub-card-desc">No-fluff guide to getting your listing ready. Self-published.</span>
           </a>
-          <a href="https://www.amazon.com/What-Need-Search-Engine-Optimization/dp/1461009626" target="_blank" rel="noopener" class="pub-card">
+          <a href="https://www.amazon.com/What-Need-Search-Engine-Optimization/dp/1461009626" target="_blank" rel="noopener noreferrer" class="pub-card" aria-label="What You Need NOW for SEO, Amazon (opens in new tab)">
             <span class="pub-card-title">What You Need NOW for SEO</span>
             <span class="pub-card-desc">Straight-to-the-point Search Engine Optimization for web content. Self-published.</span>
           </a>
@@ -263,22 +273,22 @@
       </div>
     </section>
 
-    <section class="block block-connect" id="connect">
+    <section class="block block-connect" id="connect" aria-labelledby="connect-heading">
       <div class="container">
-        <h2 class="block-title">Let’s connect</h2>
+        <h2 id="connect-heading" class="block-title">Let’s connect</h2>
         <p class="connect-lead">Reach out on LinkedIn with a message or connection request, or find me on GitHub. I’m happy to connect about live production, real estate, tech, or just to say hi.</p>
         <div class="connect-links">
-          <a href="https://www.linkedin.com/in/clafarge/" target="_blank" rel="noopener" class="connect-link">LinkedIn</a>
-          <a href="https://github.com/clafarge" target="_blank" rel="noopener" class="connect-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/clafarge/" target="_blank" rel="noopener noreferrer" class="connect-link" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
+          <a href="https://github.com/clafarge" target="_blank" rel="noopener noreferrer" class="connect-link" aria-label="GitHub profile (opens in new tab)">GitHub</a>
           </div>
         <p class="connect-place">Columbia, Missouri</p>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
-      <p><strong>Chad LaFarge</strong> · Engineer, producer, storyteller · <a href="https://www.linkedin.com/in/clafarge/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/clafarge" target="_blank" rel="noopener">GitHub</a> </p>
+      <p><strong>Chad LaFarge</strong> · Engineer, producer, storyteller · <a href="https://www.linkedin.com/in/clafarge/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a> · <a href="https://github.com/clafarge" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">GitHub</a></p>
     </div>
   </footer>
 

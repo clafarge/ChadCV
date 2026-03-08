@@ -1,6 +1,42 @@
 (function () {
   'use strict';
 
+  var THEME_KEY = 'chadcv-theme';
+  var DEFAULT_THEME = 'dark';
+
+  // Theme: apply saved preference and handle toggle
+  function getTheme() {
+    try {
+      var saved = localStorage.getItem(THEME_KEY);
+      return saved === 'light' || saved === 'dark' ? saved : DEFAULT_THEME;
+    } catch (e) {
+      return DEFAULT_THEME;
+    }
+  }
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {}
+    var btn = document.querySelector('.theme-toggle');
+    if (btn) {
+      btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      btn.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+  }
+
+  document.documentElement.setAttribute('data-theme', getTheme());
+  setTheme(getTheme()); // sync aria-label/title
+
+  var themeToggle = document.querySelector('.theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var next = getTheme() === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
+  }
+
   // Nav: add .scrolled when user has scrolled
   var nav = document.querySelector('.nav');
   if (nav) {
